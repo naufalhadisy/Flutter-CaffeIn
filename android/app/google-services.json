@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "682281309057",
+    "project_id": "caffein-844dc",
+    "storage_bucket": "caffein-844dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682281309057:android:42bd70d359b5196ede0e80",
+        "android_client_info": {
+          "package_name": "com.caffein_zeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682281309057-fj10i111suiresmfuot4v8q3h31fdnta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRNJsTZvt26Wq1ozglFn_zsG_vG96pelc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682281309057-fj10i111suiresmfuot4v8q3h31fdnta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
