@@ -18,16 +18,9 @@ class SigninScreenBottomText extends StatelessWidget {
       children: [
         SizedBox(height: getProportionateScreenHeight(20)),
         ChangeOnboardingScreenText(
-          textFirst: "Don't have an account? ",
-          clickableText: "Sign Up",
+          clickableText: "Back",
           onPressed: () {
-            locator<NavigationService>().navigateTo(Routes.signUpScreen);
-          },
-        ),
-        ChangeOnboardingScreenText(
-          clickableText: "\nStaff Sign In",
-          onPressed: () {
-            locator<NavigationService>().navigateTo(Routes.staffSignInScreen);
+            locator<NavigationService>().navigateTo(Routes.signInScreen);
           },
         ),
       ],

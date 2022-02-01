@@ -57,4 +57,22 @@ class SignInViewModel extends BaseViewModel {
     }
     setBusy(false);
   }
+
+  void staffValidateAndSave() {
+    final FormState? form = formKey.currentState;
+    if (form!.validate()) {
+      form.save();
+      staffLogin();
+    }
+  }
+
+  Future staffLogin() async {
+    setBusy(true);
+    final User? result = await _authenticationService.loginWithEmail(
+        email: 'arifbudi@caffein.com', password: 'arifbudi');
+    if (result is User) {
+      _navigationService.clearStackAndShow(Routes.staffLandingView);
+    }
+    setBusy(false);
+  }
 }

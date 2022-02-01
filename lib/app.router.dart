@@ -10,18 +10,24 @@ import 'screens/customer_screens/home/home_screen.dart';
 import 'screens/customer_screens/profile/components/edit_profile.dart';
 import 'screens/customer_screens/profile/profile_screen.dart';
 import 'screens/landing_view/landing_view.dart';
+import 'screens/landing_view/staff_landing_view.dart';
 import 'screens/sign_in/sign_in_screen.dart';
+import 'screens/sign_in/staff_sign_in/staff_sign_in_screen.dart';
 import 'screens/sign_up/sign_up_screen.dart';
 import 'screens/splash/splash_screen.dart';
+import 'screens/staff_screens/staff_home/staff_homescreen.dart';
 import 'screens/startup/startup_view.dart';
 
 class Routes {
   static const String startUpView = '/';
   static const String splashScreen = '/splash_screen';
   static const String landingView = '/landing-page';
+  static const String staffLandingView = '/staff-landing-page';
   static const String signInScreen = '/sign_in';
+  static const String staffSignInScreen = '/staff_sign_in';
   static const String signUpScreen = '/sign_up';
   static const String homeScreen = '/home';
+  static const String staffHomeScreen = '/staff_home';
   static const String detailsScreen = '/event-details';
   static const String confirmBookingView = '/confirm-booking';
   static const String makePayment = '/make_payment';
@@ -32,9 +38,12 @@ class Routes {
     startUpView,
     splashScreen,
     landingView,
+    staffLandingView,
     signInScreen,
+    staffSignInScreen,
     signUpScreen,
     homeScreen,
+    staffHomeScreen,
     detailsScreen,
     confirmBookingView,
     makePayment,
@@ -51,9 +60,12 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.startUpView, page: StartUpView),
     RouteDef(Routes.splashScreen, page: SplashScreen),
     RouteDef(Routes.landingView, page: LandingView),
+    RouteDef(Routes.staffLandingView, page: StaffLandingView),
     RouteDef(Routes.signInScreen, page: SignInScreen),
+    RouteDef(Routes.staffSignInScreen, page: StaffSignInScreen),
     RouteDef(Routes.signUpScreen, page: SignUpScreen),
     RouteDef(Routes.homeScreen, page: HomeScreen),
+    RouteDef(Routes.staffHomeScreen, page: StaffHomeScreen),
     RouteDef(Routes.profileScreen, page: ProfileScreen),
     RouteDef(Routes.editProfile, page: EditProfile),
     RouteDef(Routes.bookingHistory, page: BookingHistory),
@@ -79,9 +91,21 @@ class StackedRouter extends RouterBase {
         settings: data,
       );
     },
+    StaffLandingView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => StaffLandingView(),
+        settings: data,
+      );
+    },
     SignInScreen: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => SignInScreen(),
+        settings: data,
+      );
+    },
+    StaffSignInScreen: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => StaffSignInScreen(),
         settings: data,
       );
     },
@@ -98,6 +122,12 @@ class StackedRouter extends RouterBase {
           key: args.key,
           eventType: args.eventType,
         ),
+        settings: data,
+      );
+    },
+    StaffHomeScreen: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => StaffHomeScreen(),
         settings: data,
       );
     },

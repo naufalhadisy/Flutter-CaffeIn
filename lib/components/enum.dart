@@ -1,1 +1,4 @@
-enum EventType { home, booking }
+enum EventType {
+  home,
+  booking,
+}
