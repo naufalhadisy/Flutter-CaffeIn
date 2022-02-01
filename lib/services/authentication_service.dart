@@ -53,6 +53,7 @@ class AuthenticationService {
         name: user.name,
         phone: user.phone,
         email: user.email,
+        role: user.role,
       );
 
       //Create new user document using FireStoreService
@@ -87,9 +88,5 @@ class AuthenticationService {
 
   Future refreshUser(String userId) async {
     _currentUser = await _firebaseService.getUserProfile(userId);
-  }
-
-  Future<void> resetPassword(String email) async {
-    await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
 }

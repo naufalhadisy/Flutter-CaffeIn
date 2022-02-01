@@ -51,7 +51,8 @@ class ProfileScreenViewModel extends BaseViewModel {
           name: nameEditingController.text,
           phone: phoneNumberEditingController.text,
           email: user.email,
-          booking: user.booking);
+          booking: user.booking,
+          role: user.role);
       await _firebaseService.updateUser(newUser);
       refreshUser(user.id!);
       await _dialogService.showDialog(
@@ -85,27 +86,6 @@ class ProfileScreenViewModel extends BaseViewModel {
     await _authenticationService.checkUserLoggedIn();
     user = _authenticationService.currentUser!;
     notifyListeners();
-  }
-
-  Future becomeAPromoter() async {
-    user = _authenticationService.currentUser!;
-    try {
-      final UserModel newUser = UserModel(
-        id: user.id,
-        name: user.name,
-        phone: user.phone,
-        email: user.email,
-        booking: user.booking,
-      );
-      await _firebaseService.updateUser(newUser);
-      await _dialogService.showDialog(
-        title: "Success",
-        description: "Profile Updated!",
-      );
-      refreshUser(newUser.id!);
-    } catch (e) {
-      log('Error updating user profile: $e');
-    }
   }
 
   Future refreshUser(String userId) async {

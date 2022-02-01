@@ -21,10 +21,8 @@ class Routes {
   static const String landingView = '/landing-page';
   static const String signInScreen = '/sign_in';
   static const String signUpScreen = '/sign_up';
-  static const String forgotPasswordView = '/forgot_password';
   static const String homeScreen = '/home';
   static const String detailsScreen = '/event-details';
-  static const String bookPass = '/book-pass';
   static const String confirmBookingView = '/confirm-booking';
   static const String makePayment = '/make_payment';
   static const String profileScreen = '/my-profile';
@@ -36,10 +34,8 @@ class Routes {
     landingView,
     signInScreen,
     signUpScreen,
-    forgotPasswordView,
     homeScreen,
     detailsScreen,
-    bookPass,
     confirmBookingView,
     makePayment,
     profileScreen,
@@ -128,13 +124,6 @@ class StackedRouter extends RouterBase {
       );
     },
   };
-}
-
-/// ForgotPasswordView arguments holder class
-class ForgotPasswordViewArguments {
-  final Key? key;
-  final String email;
-  ForgotPasswordViewArguments({this.key, required this.email});
 }
 
 /// HomeScreen arguments holder class

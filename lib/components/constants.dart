@@ -44,8 +44,6 @@ OutlineInputBorder outlineInputBorder() {
   );
 }
 
-const String ruppeeSymbol = "₹";
-
 Divider divider() => const Divider(
       color: Colors.white70,
       height: 1,

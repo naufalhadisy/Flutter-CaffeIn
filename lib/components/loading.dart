@@ -14,13 +14,14 @@ class Loading extends StatelessWidget {
       children: [
         const Center(
           child: SpinKitRipple(
-            color: kPrimaryColor,
+            color: Colors.white,
             size: 60,
           ),
         ),
         Text(
           text ?? "Please wait...",
           textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white),
         )
       ],
     );

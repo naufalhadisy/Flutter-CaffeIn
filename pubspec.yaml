@@ -37,13 +37,10 @@ dependencies:
   shared_preferences: ^2.0.8
   flutter_spinkit: ^5.1.0
   firebase_core:
-  firebase_auth:
+  firebase_auth: 
   cloud_firestore:
-  flutter_email_sender: ^5.0.2
   random_string: ^2.1.0
   image_picker: ^0.8.4+3
-  razorpay_flutter: ^1.2.6
-  qr_flutter: ^4.0.0
   fluttertoast: ^8.0.8
   google_nav_bar: ^5.0.5
   line_icons: ^2.0.1

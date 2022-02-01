@@ -20,7 +20,7 @@ class ChangeOnboardingScreenText extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: textFirst,
-        style: Theme.of(context).textTheme.bodyText1,
+        style: TextStyle(color: Colors.white),
         children: [
           TextSpan(
             text: clickableText,

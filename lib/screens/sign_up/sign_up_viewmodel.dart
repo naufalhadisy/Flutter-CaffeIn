@@ -57,6 +57,7 @@ class SignUpViewModel extends BaseViewModel {
       name: name!,
       phone: phoneNumber!,
       email: email!,
+      role: "customer",
     );
     final bool result = await _authenticationService.signUpWithEmail(
       user: user,
