@@ -31,7 +31,7 @@ class UserDetails extends StatelessWidget {
                 style: TextStyle(fontSize: 15, color: Colors.white70),
               ),
               Text(
-                "Email ID",
+                "Email",
                 style: TextStyle(fontSize: 15, color: Colors.white70),
               ),
             ],

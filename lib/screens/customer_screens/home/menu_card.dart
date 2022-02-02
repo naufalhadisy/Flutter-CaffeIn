@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:caffein_teamzeal/screens/customer_screens/home/detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'menu_modelview.dart';
+import 'package:caffein_teamzeal/models/menu_model.dart';
 
 class MenuCard extends StatelessWidget {
   final Menu menu;

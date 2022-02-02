@@ -7,7 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'menu_card.dart';
-import 'menu_modelview.dart';
+import 'package:caffein_teamzeal/models/menu_model.dart';
 
 class HomeScreen extends StatelessWidget {
   final EventType eventType;

@@ -76,8 +76,8 @@ class Body extends StatelessWidget {
                         child: Card(
                           semanticContainer: true,
                           clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: Image.network(
-                            "https://m.media-amazon.com/images/I/61JCeKP0UZL._SY450_.jpg",
+                          child: Image.asset(
+                            "assets/images/tableType1.jpg",
                           ),
                         ),
                       ),
@@ -98,8 +98,9 @@ class Body extends StatelessWidget {
                         child: Card(
                           semanticContainer: true,
                           clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: Image.network(
-                              "https://m.media-amazon.com/images/I/61JCeKP0UZL._SY450_.jpg"),
+                          child: Image.asset(
+                            "assets/images/tableType2.jpg",
+                          ),
                         ),
                       ),
                     ),
@@ -119,7 +120,7 @@ class Body extends StatelessWidget {
                     Padding(
                         padding: const EdgeInsets.only(left: 60.0),
                         child: Text(
-                          "Table Type 2\n5 - 8 Person\nBooking Price: RM 7",
+                          "Table Type 2\n5 - 10 Person\nBooking Price: RM 7",
                         )),
                   ],
                 ),

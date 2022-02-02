@@ -1,12 +1,15 @@
 import 'package:caffein_teamzeal/components/loading.dart';
 import 'package:caffein_teamzeal/components/rich_text_row.dart';
 import 'package:caffein_teamzeal/components/size_config.dart';
+import 'package:caffein_teamzeal/screens/customer_screens/booking/booking_form.dart';
 import 'package:caffein_teamzeal/screens/customer_screens/booking/booking_form_viewmodel.dart';
 import 'package:caffein_teamzeal/screens/customer_screens/booking/components/booking_confirmation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import '../../../../models/booking_model.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -16,12 +19,13 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   // final items = ['Table type 1', 'Table type 2'];
   // String? value;
+//final BookingModel bookingModel;
 
-  TextEditingController sampledata1 = new TextEditingController();
-  TextEditingController sampledata2 = new TextEditingController();
-  TextEditingController sampledata3 = new TextEditingController();
-  TextEditingController sampledata4 = new TextEditingController();
-  TextEditingController sampledata5 = new TextEditingController();
+  final controllerTableType = TextEditingController();
+  final controllerNumberofPerson = TextEditingController();
+  final controllerDate = TextEditingController();
+  final controllerTime = TextEditingController();
+  final controllerAdditional = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +52,7 @@ class _BodyState extends State<Body> {
               // ),
 
               TextFormField(
-                controller: sampledata1,
+                controller: controllerTableType,
                 decoration: InputDecoration(hintText: "Table Type 1"),
               ),
               SizedBox(
@@ -56,15 +60,15 @@ class _BodyState extends State<Body> {
               ),
               Text("Date\n"),
               TextFormField(
-                controller: sampledata2,
-                decoration: InputDecoration(hintText: "DD/MM/YYYY"),
+                controller: controllerDate,
+                decoration: InputDecoration(hintText: "12/11/2022"),
               ),
               SizedBox(
                 height: 20.0,
               ),
               Text("Time\n"),
               TextFormField(
-                controller: sampledata3,
+                controller: controllerTime,
                 decoration: InputDecoration(hintText: "04.00 PM"),
               ),
               SizedBox(
@@ -72,7 +76,7 @@ class _BodyState extends State<Body> {
               ),
               Text("Number of Person\n"),
               TextFormField(
-                controller: sampledata4,
+                controller: controllerNumberofPerson,
                 decoration: InputDecoration(hintText: "4"),
               ),
               SizedBox(
@@ -80,31 +84,37 @@ class _BodyState extends State<Body> {
               ),
               Text("Additional Note\n"),
               TextFormField(
-                controller: sampledata5,
+                controller: controllerAdditional,
                 decoration:
                     InputDecoration(hintText: "ex: please clean the table"),
               ),
               SizedBox(
                 height: 20.0,
               ),
-              FlatButton(
-                height: 49,
+              ElevatedButton(
+                //height: 49,
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0XFF93C47D),
+                ),
+                child:
+                    Text("Book now", style: TextStyle(color: Colors.black54)),
                 onPressed: () {
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
                           builder: (context) => new BookingConf()));
-                  Map<String, dynamic> data = {
-                    "Table Number": sampledata1.text,
-                    "Date": sampledata2.text,
-                    "Time": sampledata3.text,
-                    "Number of Person": sampledata4.text,
-                    "Additional": sampledata5.text
-                  };
-                  FirebaseFirestore.instance.collection("booking").add(data);
+                  final data = BookingModel(
+                      date: controllerDate.text,
+                      additional: controllerAdditional.text,
+                      numberperson: controllerNumberofPerson.text,
+                      time: controllerTime.text,
+                      tabletype: controllerTableType.text);
+                  createBooking(data);
+
+                  // final docUser = FirebaseFirestore.instance.collection("booking").doc();
                 },
-                child: Text("Book now"),
-                color: Color(0xFFCFB476),
+
+                //color: Color(0xFFCFB476),
               )
             ],
           ),
@@ -120,4 +130,10 @@ class _BodyState extends State<Body> {
   //         style: TextStyle(fontWeight: FontWeight.bold),
   //       ),
   //     );
+  Future createBooking(BookingModel bookingModel) async {
+    final docUser = FirebaseFirestore.instance.collection("booking").doc();
+    bookingModel.Book_id = docUser.id;
+    final json = bookingModel.toJson();
+    await docUser.set(json);
+  }
 }
