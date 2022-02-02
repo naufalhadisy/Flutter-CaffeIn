@@ -1,7 +1,9 @@
+import 'package:caffein_teamzeal/components/enum.dart';
 import 'package:caffein_teamzeal/components/loading.dart';
 import 'package:caffein_teamzeal/components/rich_text_row.dart';
 import 'package:caffein_teamzeal/components/size_config.dart';
 import 'package:caffein_teamzeal/screens/customer_screens/booking/booking_form_viewmodel.dart';
+import 'package:caffein_teamzeal/screens/customer_screens/booking/booking_home_screen.dart';
 import 'package:caffein_teamzeal/screens/customer_screens/home/home_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -61,9 +63,6 @@ class _BookingConfState extends State<BookingConf> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
               Text(
                 "Your booking has been recorded, you can proceed to payment or cancel the booking.",
                 textAlign: TextAlign.center,
@@ -76,7 +75,7 @@ class _BookingConfState extends State<BookingConf> {
                 height: 20,
               ),
               FlatButton(
-                color: Color(0xFFCFB476),
+                color: Color(0xFF93C47D),
                 onPressed: () {},
                 // EdgeInsets.only(left: 25, right: 25, bottom: 50),
                 height: 49,
@@ -85,7 +84,7 @@ class _BookingConfState extends State<BookingConf> {
                 //     borderRadius: BorderRadius.circular(10)),
               ),
               SizedBox(
-                height: 30,
+                height: 10,
               ),
               ChangeOnboardingScreenText(
                   clickableText: "Cancel Booking",
@@ -93,7 +92,8 @@ class _BookingConfState extends State<BookingConf> {
                     Navigator.push(
                         context,
                         new MaterialPageRoute(
-                            builder: (context) => new Booking()));
+                            builder: (context) => new BookingScreen(
+                                eventType: EventType.booking)));
                   }),
             ],
           ),

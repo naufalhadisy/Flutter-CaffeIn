@@ -57,7 +57,7 @@ class _BodyState extends State<Body> {
               Text("Date\n"),
               TextFormField(
                 controller: sampledata2,
-                decoration: InputDecoration(hintText: "12/11/2022"),
+                decoration: InputDecoration(hintText: "DD/MM/YYYY"),
               ),
               SizedBox(
                 height: 20.0,
