@@ -1,10 +1,9 @@
 import 'dart:io';
 
 import 'package:caffein_teamzeal/components/constants.dart';
-import 'package:caffein_teamzeal/components/enum.dart';
 import 'package:caffein_teamzeal/components/size_config.dart';
-import 'package:caffein_teamzeal/screens/customer_screens/profile/profile_screen.dart';
 import 'package:caffein_teamzeal/screens/staff_screens/staff_home/staff_homescreen.dart';
+import 'package:caffein_teamzeal/screens/staff_screens/staff_profile/staff_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
@@ -22,7 +21,7 @@ class _StaffLandingViewState extends State<StaffLandingView>
   final List<Widget> _children = [
     const StaffHomeScreen(),
     StaffHomeScreen(),
-    ProfileScreen()
+    StaffProfileScreen(),
   ];
 
   Future<bool?> _exitApp(BuildContext context) {

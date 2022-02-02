@@ -2,8 +2,12 @@ import 'package:caffein_teamzeal/components/constants.dart';
 import 'package:caffein_teamzeal/components/enum.dart';
 import 'package:caffein_teamzeal/components/size_config.dart';
 import 'package:caffein_teamzeal/screens/customer_screens/home/home_screen_viewmodel.dart';
+import 'package:caffein_teamzeal/screens/customer_screens/home/menu_card.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'menu_card.dart';
+import 'menu_modelview.dart';
 
 class HomeScreen extends StatelessWidget {
   final EventType eventType;
@@ -11,6 +15,8 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key, required this.eventType}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference products = firestore.collection('products');
     return ViewModelBuilder<HomeScreenViewModel>.reactive(
         onModelReady: (viewModel) async {},
         viewModelBuilder: () => HomeScreenViewModel(),
@@ -46,12 +52,36 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               body: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(height: getProportionateScreenHeight(5)),
-                    SizedBox(height: getProportionateScreenWidth(10)),
-                  ],
-                ),
+                child: Column(children: [
+                  Text('List Menu',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white, fontSize: 30)),
+                  SizedBox(
+                    height: 32,
+                  ),
+                  StreamBuilder<QuerySnapshot>(
+                      stream:
+                          products.orderBy('id', descending: false).snapshots(),
+                      builder: (_, snapshot) {
+                        if (snapshot.hasData) {
+                          return Column(
+                            children: (snapshot.data! as QuerySnapshot)
+                                .docs
+                                .map(
+                                  (e) => MenuCard(Menu(
+                                      id: e['id'],
+                                      image: e['image'],
+                                      name: e['name'],
+                                      price: e['price'],
+                                      note: e['desc'])),
+                                )
+                                .toList(),
+                          );
+                        } else {
+                          return Center(child: CircularProgressIndicator());
+                        }
+                      }),
+                ]),
               ),
             ),
           );

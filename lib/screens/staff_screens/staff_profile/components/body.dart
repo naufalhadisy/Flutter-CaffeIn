@@ -1,14 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:caffein_teamzeal/components/constants.dart';
-import 'package:caffein_teamzeal/screens/customer_screens/profile/components/logout_tile.dart';
-import 'package:caffein_teamzeal/screens/customer_screens/profile/components/user_info.dart';
-import 'package:caffein_teamzeal/screens/customer_screens/profile/components/view_bookings_tile.dart';
-import 'package:caffein_teamzeal/screens/customer_screens/profile/profile_screen_viewmodel.dart';
+import 'package:caffein_teamzeal/screens/staff_screens/staff_profile/components/logout_tile.dart';
+import 'package:caffein_teamzeal/screens/staff_screens/staff_profile/components/user_info.dart';
+import 'package:caffein_teamzeal/screens/staff_screens/staff_profile/staff_profile_screen_viewmodel.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
-  final ProfileScreenViewModel viewModel;
+  final StaffProfileScreenViewModel viewModel;
 
   const Body({Key? key, required this.viewModel}) : super(key: key);
   @override
@@ -19,8 +18,6 @@ class Body extends StatelessWidget {
           UserDetails(
             viewModel: viewModel,
           ),
-          divider(),
-          ViewBookings(user: viewModel.user),
           divider(),
           LogoutTile(),
           divider(),

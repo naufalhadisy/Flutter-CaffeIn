@@ -31,14 +31,14 @@ class ViewBookings extends StatelessWidget {
             Row(
               children: <Widget>[
                 SvgPicture.asset(
-                  "assets/icons/tickets.svg",
+                  "assets/icons/icon_doc_yellow.svg",
                   height: 20,
                 ),
                 const SizedBox(
                   width: 10,
                 ),
                 const Text(
-                  'My Booking',
+                  'Booking History',
                   style: TextStyle(color: Colors.white70),
                 ),
               ],

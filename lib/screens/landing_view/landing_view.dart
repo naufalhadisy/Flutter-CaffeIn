@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:caffein_teamzeal/components/constants.dart';
 import 'package:caffein_teamzeal/components/enum.dart';
 import 'package:caffein_teamzeal/components/size_config.dart';
+import 'package:caffein_teamzeal/screens/customer_screens/booking/booking_home_screen.dart';
 import 'package:caffein_teamzeal/screens/customer_screens/home/home_screen.dart';
 import 'package:caffein_teamzeal/screens/customer_screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _LandingViewState extends State<LandingView>
     const HomeScreen(
       eventType: EventType.home,
     ),
-    const HomeScreen(
+    BookingScreen(
       eventType: EventType.booking,
     ),
     ProfileScreen()

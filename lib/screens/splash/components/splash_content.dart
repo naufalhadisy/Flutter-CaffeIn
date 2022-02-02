@@ -16,6 +16,7 @@ class SplashContent extends StatelessWidget {
       children: <Widget>[
         Text(
           text,
+          style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
         const Spacer(flex: 2),

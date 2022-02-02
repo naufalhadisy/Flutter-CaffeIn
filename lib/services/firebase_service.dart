@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:caffein_teamzeal/components/enum.dart';
 import 'package:caffein_teamzeal/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

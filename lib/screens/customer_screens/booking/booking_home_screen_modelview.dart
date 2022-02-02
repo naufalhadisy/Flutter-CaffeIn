@@ -8,5 +8,5 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class HomeScreenViewModel extends BaseViewModel {
- final FirebaseService _firebaseService = locator<FirebaseService>();
+  final FirebaseService _firebaseService = locator<FirebaseService>();
 }
