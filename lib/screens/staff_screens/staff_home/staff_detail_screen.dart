@@ -1,30 +1,30 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:caffein_teamzeal/screens/customer_screens/booking/booking_form.dart';
 
-class DetailScreen extends StatefulWidget {
+class StaffDetailScreen extends StatefulWidget {
   String? id;
   String image;
   String name;
   String price;
   String note;
 
-  DetailScreen(this.id, this.image, this.name, this.price, this.note,
+  StaffDetailScreen(this.id, this.image, this.name, this.price, this.note,
       {Key? key})
       : super(key: key);
   @override
-  State<DetailScreen> createState() =>
-      _DetailScreen(id, image, name, price, note);
+  State<StaffDetailScreen> createState() =>
+      _StaffDetailScreen(id, image, name, price, note);
 }
 
-class _DetailScreen extends State<DetailScreen> {
+class _StaffDetailScreen extends State<StaffDetailScreen> {
   String? _id;
   String _image;
   String _name;
   String _price;
   String _note;
-  _DetailScreen(this._id, this._image, this._name, this._price, this._note);
+  _StaffDetailScreen(
+      this._id, this._image, this._name, this._price, this._note);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,33 +109,6 @@ class _DetailScreen extends State<DetailScreen> {
                           ),
                         ),
                         SizedBox(height: 18),
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          child: RaisedButton(
-                            padding: EdgeInsets.only(top: 12, bottom: 12),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
-                            hoverElevation: 0,
-                            highlightElevation: 0,
-                            disabledElevation: 0,
-                            elevation: 0,
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  new MaterialPageRoute(
-                                      builder: (context) => new Booking()));
-                            },
-                            color: Colors.yellow,
-                            child: Text(
-                              'Proceed to Booking',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        )
                       ]),
                     )
                   ],

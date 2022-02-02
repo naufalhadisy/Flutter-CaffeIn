@@ -1,16 +1,31 @@
-class Menu 
-{
+class Menu {
   String image;
-  int id;
+  String? id;
   String name;
-  String note;
+  String desc;
   String price;
 
   Menu({
-    required this.id,
+    this.id,
     required this.image,
     required this.name,
-    required this.note,
-    required this.price
+    required this.desc,
+    required this.price,
   });
+
+  Menu.fromJson(Map<String, dynamic> json, this.id)
+      : name = json['name'] as String,
+        image = json['image'] as String,
+        desc = json['desc'] as String,
+        price = json['price'] as String;
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "name": name,
+      "desc": desc,
+      "image": image,
+      "price": price
+    };
+  }
 }

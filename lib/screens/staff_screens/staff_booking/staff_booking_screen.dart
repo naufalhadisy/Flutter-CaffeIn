@@ -1,13 +1,14 @@
 import 'package:caffein_teamzeal/components/size_config.dart';
 import 'package:caffein_teamzeal/models/booking_model.dart';
 import 'package:caffein_teamzeal/screens/customer_screens/history/components/body.dart';
+import 'package:caffein_teamzeal/screens/staff_screens/staff_booking/staff_booking_body.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class BookingHistory extends StatelessWidget {
-  final List<String> passes;
-
-  const BookingHistory({Key? key, required this.passes}) : super(key: key);
+class StaffBooking extends StatelessWidget {
+  const StaffBooking({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -15,10 +16,22 @@ class BookingHistory extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Booking History"),
+        title: const Text("CaffeIN - Staff"),
       ),
       body: SingleChildScrollView(
         child: Column(children: [
+          SizedBox(
+            height: 15,
+            width: 10,
+          ),
+          Text(
+            "Incoming Booking",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 25,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
           StreamBuilder<QuerySnapshot>(
               stream: booking.orderBy('Book_ID', descending: false).snapshots(),
               builder: (_, snapshot) {
@@ -27,7 +40,7 @@ class BookingHistory extends StatelessWidget {
                     children: (snapshot.data! as QuerySnapshot)
                         .docs
                         .map(
-                          (e) => Body(BookingModel(
+                          (e) => StaffBookingBody(BookingModel(
                               Book_id: e['Book_ID'],
                               name: e['name'],
                               tabletype: e['tableType'],

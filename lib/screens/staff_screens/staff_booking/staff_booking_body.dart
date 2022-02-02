@@ -2,14 +2,13 @@ import 'package:caffein_teamzeal/components/loading.dart';
 import 'package:caffein_teamzeal/components/rich_text_row.dart';
 import 'package:caffein_teamzeal/components/size_config.dart';
 import 'package:caffein_teamzeal/models/booking_model.dart';
-import 'package:caffein_teamzeal/screens/customer_screens/booking/booking_form.dart';
 import 'package:caffein_teamzeal/screens/customer_screens/history/booking_history_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-class Body extends StatelessWidget {
+class StaffBookingBody extends StatelessWidget {
   final BookingModel booking;
-  Body(this.booking);
+  StaffBookingBody(this.booking);
 
   @override
   Widget build(BuildContext context) {

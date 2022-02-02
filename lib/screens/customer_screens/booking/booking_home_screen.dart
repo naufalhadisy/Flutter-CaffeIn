@@ -34,13 +34,6 @@ class BookingScreen extends StatelessWidget {
                   height: 32,
                   width: 32,
                   margin: const EdgeInsets.only(right: 10),
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.search,
-                      size: 30,
-                    ),
-                    onPressed: () {},
-                  ),
                 )
               ],
             ),

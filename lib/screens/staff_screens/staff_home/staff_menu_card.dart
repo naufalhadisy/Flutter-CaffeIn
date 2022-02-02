@@ -1,12 +1,12 @@
 import 'dart:ui';
 
-import 'package:caffein_teamzeal/screens/customer_screens/home/detail_screen.dart';
+import 'package:caffein_teamzeal/screens/staff_screens/staff_home/staff_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:caffein_teamzeal/models/menu_model.dart';
 
-class MenuCard extends StatelessWidget {
+class StaffMenuCard extends StatelessWidget {
   final Menu menu;
-  MenuCard(this.menu);
+  StaffMenuCard(this.menu);
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -14,7 +14,7 @@ class MenuCard extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => DetailScreen(
+                builder: (context) => StaffDetailScreen(
                     menu.id, menu.image, menu.name, menu.price, menu.desc)));
       },
       child: Container(

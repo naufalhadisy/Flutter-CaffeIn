@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:caffein_teamzeal/components/constants.dart';
 import 'package:caffein_teamzeal/components/size_config.dart';
+import 'package:caffein_teamzeal/screens/staff_screens/staff_booking/staff_booking_screen.dart';
 import 'package:caffein_teamzeal/screens/staff_screens/staff_home/staff_homescreen.dart';
 import 'package:caffein_teamzeal/screens/staff_screens/staff_profile/staff_profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _StaffLandingViewState extends State<StaffLandingView>
   int _currentIndex = 0;
   final List<Widget> _children = [
     const StaffHomeScreen(),
-    StaffHomeScreen(),
+    StaffBooking(),
     StaffProfileScreen(),
   ];
 

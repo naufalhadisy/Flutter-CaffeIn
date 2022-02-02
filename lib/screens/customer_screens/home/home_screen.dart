@@ -22,40 +22,42 @@ class HomeScreen extends StatelessWidget {
         viewModelBuilder: () => HomeScreenViewModel(),
         builder: (context, viewModel, child) {
           return SafeArea(
-            child: Scaffold(
-              appBar: AppBar(
-                leading: Container(
-                  margin: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: Colors.white,
-                  ),
-                  child: Image.asset(
-                    "assets/images/caffein_logo.png",
-                    fit: BoxFit.cover,
-                  ),
+              child: Scaffold(
+            appBar: AppBar(
+              leading: Container(
+                margin: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.white,
                 ),
-                title: const Text("CaffeIN"),
-                actions: [
-                  Container(
-                    height: 32,
-                    width: 32,
-                    margin: const EdgeInsets.only(right: 10),
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.search,
-                        size: 30,
-                      ),
-                      onPressed: () {},
-                    ),
-                  )
-                ],
+                child: Image.asset(
+                  "assets/images/caffein_logo.png",
+                  fit: BoxFit.cover,
+                ),
               ),
-              body: SingleChildScrollView(
+              title: const Text("CaffeIN"),
+              actions: [
+                Container(
+                  height: 32,
+                  width: 32,
+                  margin: const EdgeInsets.only(right: 10),
+                )
+              ],
+            ),
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 10.0,
+                  right: 10.0,
+                ),
                 child: Column(children: [
+                  SizedBox(
+                    height: 15,
+                    width: 10,
+                  ),
                   Text('List Menu',
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 30)),
+                      style: TextStyle(color: Colors.white, fontSize: 25)),
                   SizedBox(
                     height: 32,
                   ),
@@ -73,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                                       image: e['image'],
                                       name: e['name'],
                                       price: e['price'],
-                                      note: e['desc'])),
+                                      desc: e['desc'])),
                                 )
                                 .toList(),
                           );
@@ -84,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                 ]),
               ),
             ),
-          );
+          ));
         });
   }
 }
