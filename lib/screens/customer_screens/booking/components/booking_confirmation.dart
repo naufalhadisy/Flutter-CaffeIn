@@ -71,7 +71,7 @@ class _BookingConfState extends State<BookingConf> {
                 height: 20,
               ),
               Text(
-                "Your booking has been recorded, you can proceed to payment or cancel the booking.",
+                "Your booking has been recorded, you can proceed to payment now.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
@@ -84,10 +84,10 @@ class _BookingConfState extends State<BookingConf> {
               FlatButton(
                 color: Color(0xFFCFB476),
                 onPressed: () {
-                   Navigator.push(
-                       context,
-                       new MaterialPageRoute(
-                           builder: (context) => new Payment()));
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => new Payment()));
                 },
                 // EdgeInsets.only(left: 25, right: 25, bottom: 50),
                 height: 49,
@@ -98,19 +98,6 @@ class _BookingConfState extends State<BookingConf> {
               SizedBox(
                 height: 30,
               ),
-              ChangeOnboardingScreenText(
-                  clickableText: "Cancel Booking",
-                  onPressed: () {
-                    Navigator.push(
-                        context, 
-                        new MaterialPageRoute(
-                            builder: (context) => new LandingView()));
-                  FirebaseFirestore.instance.collection("booking").doc();
-                  
-                  }
-                 
-                    ),
-                    
             ],
           ),
         ),
