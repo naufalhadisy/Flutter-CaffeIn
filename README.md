@@ -1,4 +1,4 @@
-# caffein_teamzeal
+# caffeIn
 
 A new Flutter project.
 
